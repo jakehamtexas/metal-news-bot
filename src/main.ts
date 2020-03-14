@@ -1,5 +1,5 @@
 import Express from "express";
-import { MetalNewsQuery as query } from "./contract/MetalNewsQuery";
+import { MetalNewsQuery as query } from "./contract/";
 const app: Express.Application = Express();
 const port: number = 8080;
 

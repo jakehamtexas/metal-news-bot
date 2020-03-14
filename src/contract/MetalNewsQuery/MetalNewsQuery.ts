@@ -1,6 +1,7 @@
 import HeavyBlogIsHeavyQuery from "./HeavyBlogIsHeavyQuery";
+import IQuery from "./IQuery";
 class MetalNewsQuery {
-  public heavyBlogIsHeavy: HeavyBlogIsHeavyQuery;
+  public heavyBlogIsHeavy: IQuery;
   constructor() {
     this.heavyBlogIsHeavy = new HeavyBlogIsHeavyQuery();
   }
