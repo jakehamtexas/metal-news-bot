@@ -1,27 +1,21 @@
 import { asyncUsing } from "../util";
 import { Page } from "puppeteer";
-import { IPageStrategy } from "../contract/PageStrategy/IPageStrategy";
 import { IHeadline } from "../contract/Headline";
 import { HeadlessBrowser } from "../contract/HeadlessBrowser";
 import {
   GoToNextFunctionSignature,
-  GetHeadlinesFunctionSignature
+  GetHeadlinesFunctionSignature,
+  IPageStrategy
 } from "../contract/PageStrategy";
 
-class PageRA<TPageStrategy extends IPageStrategy> {
+class PageRA {
   private baseUrl: string;
   private pageStrategy: IPageStrategy;
   constructor(
-    TPageStrategy: {
-      new (
-        getHeadlinesFunc: GetHeadlinesFunctionSignature,
-        goToNextFunc: GoToNextFunctionSignature
-      ): TPageStrategy;
-    },
-    getHeadlinesFunc: GetHeadlinesFunctionSignature,
-    goToNextFunc: GoToNextFunctionSignature
+    getHeadlines: GetHeadlinesFunctionSignature,
+    goToNext: GoToNextFunctionSignature
   ) {
-    this.pageStrategy = new TPageStrategy(getHeadlinesFunc, goToNextFunc);
+    this.pageStrategy = { getHeadlines, goToNext };
   }
 
   public async getTopN(n: number): Promise<IHeadline[]> {
