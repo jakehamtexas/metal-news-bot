@@ -1,3 +1,3 @@
-import HeavyBlogIsHeavyRA from "./HeavyBlogIsHeavyRA";
+import PageRA from "./PageRA";
 
-export { HeavyBlogIsHeavyRA };
+export { PageRA };
