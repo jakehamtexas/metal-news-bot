@@ -1,7 +1,4 @@
-import {
-  GetHeadlinesFunctionSignature,
-  GoToNextFunctionSignature
-} from "../contract/PageStrategy";
+import { IPageStrategy } from "../contract/PageStrategy";
 import { IHeadline } from "../contract/Headline";
 import { Page } from "puppeteer";
 
@@ -28,13 +25,9 @@ const goToNext = async (page: Page): Promise<boolean> => {
   return hasSelector;
 };
 
-class HeavyBlogIsHeavyPageStrategyEngine {
-  public getHeadlines: GetHeadlinesFunctionSignature;
-  public goToNext: GoToNextFunctionSignature;
-  constructor() {
-    this.getHeadlines = getHeadlines;
-    this.goToNext = goToNext;
-  }
+class HeavyBlogIsHeavyPageStrategy implements IPageStrategy {
+  public getHeadlines = getHeadlines;
+  public goToNext = goToNext;
 }
 
-export default new HeavyBlogIsHeavyPageStrategyEngine();
+export default new HeavyBlogIsHeavyPageStrategy();
