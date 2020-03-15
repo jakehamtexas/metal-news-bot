@@ -19,7 +19,14 @@ const getHeadlines = async (page: Page): Promise<IHeadline[]> => {
       }));
   });
 };
-const goToNext = async (page: Page): Promise<void> => {};
+const goToNext = async (page: Page): Promise<boolean> => {
+  const selector = `.nav-previous`; // This navs to older posts.
+  const hasSelector = !!(await page.$(selector));
+  if (hasSelector) {
+    await page.click(selector);
+  }
+  return hasSelector;
+};
 
 class HeavyBlogIsHeavyPageStrategyEngine {
   public getHeadlines: GetHeadlinesFunctionSignature;

@@ -38,8 +38,7 @@ class PageRA {
       n -= pageHeadlines.length;
       if (n > 0) {
         const completingNavigation = page.waitForNavigation();
-        goToNext(page);
-        await completingNavigation;
+        if (goToNext(page)) await completingNavigation;
       }
     }
     return links;

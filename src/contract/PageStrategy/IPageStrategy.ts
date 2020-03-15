@@ -3,5 +3,5 @@ import { IHeadline } from "../Headline";
 
 export interface IPageStrategy {
   getHeadlines(page: Page): Promise<IHeadline[]>;
-  goToNext(page: Page): Promise<void>;
+  goToNext(page: Page): Promise<boolean>;
 }
