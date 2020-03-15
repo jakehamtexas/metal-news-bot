@@ -1,5 +1,5 @@
-import { IPageStrategy } from "../contract/PageStrategy";
-import { IHeadline } from "../contract/Headline";
+import { IPageStrategy } from ".";
+import { IHeadline } from "../Headline";
 import { Page } from "puppeteer";
 
 const getAnchor = (articleElement: HTMLElement): HTMLAnchorElement =>
