@@ -1,4 +1,4 @@
-import { IDisposable } from "../contract/HeadlessBrowser/";
+import { IDisposable } from "../contract/HeadlessBrowser";
 
 const asyncUsing = async <TDisposableResourceType extends IDisposable>(
   resource: TDisposableResourceType,
