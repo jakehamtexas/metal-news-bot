@@ -3,7 +3,8 @@ import { HeavyBlogIsHeavyPageStrategy } from "../contract/PageStrategy";
 class MetalNewsManager {
   public heavyBlogIsHeavy: PageRA;
   constructor() {
-    this.heavyBlogIsHeavy = new PageRA(HeavyBlogIsHeavyPageStrategy);
+    const baseUrl = `https://www.heavyblogisheavy.com/`;
+    this.heavyBlogIsHeavy = new PageRA(baseUrl, HeavyBlogIsHeavyPageStrategy);
   }
 }
 export default new MetalNewsManager();
