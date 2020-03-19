@@ -1,12 +1,12 @@
 import { BotCommand } from "../constant";
-import { helpText, topN } from "./bot-command";
+import { helpText } from "./bot-command";
 import { Message } from "discord.js";
+import { ICommand } from "../contract/";
+import topN from "./bot-command/top-n";
 
-const getMessageParts = ({
-  content
-}: Message): [BotCommand, string, string] => {
+const getCommand = ({ content }: Message): ICommand => {
   const [botCommand, text, option] = content.replace("!", "").split(" ");
-  return [botCommand as BotCommand, text, option];
+  return { botCommand, text, option };
 };
 
 export default (botId: string | null | undefined) => {
@@ -14,10 +14,10 @@ export default (botId: string | null | undefined) => {
     if (botId) {
       helpText(message, botId);
       if (message.content.startsWith("!")) {
-        const [command, text, option] = getMessageParts(message);
-        switch (command.trim().toLowerCase() as BotCommand) {
+        const command = getCommand(message);
+        switch (command.botCommand) {
           case BotCommand.Top:
-            await topN(message, text, option);
+            await topN(message, command);
             break;
         }
       }

@@ -1,3 +1,3 @@
-export enum BotCommand {
-  Top = "top"
-}
+const BotCommand = { Top: "top" };
+
+export default BotCommand;

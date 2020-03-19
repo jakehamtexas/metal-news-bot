@@ -9,6 +9,8 @@ const helpText = (
 Commands:
 \`@metal-news-bot help\` prints this help text
 \`!top <n> [hbih]\` gets the latest n headlines from any registered blog.
+    Options:
+      - \'hbib\': Heavy Blog Is Heavy https://www.heavyblogisheavy.com
 `);
   }
 };

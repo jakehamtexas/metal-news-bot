@@ -1,3 +1,5 @@
-export enum WebResourceOption {
-  HeavyBlogIsHeavy = "hbih"
-}
+const WebResourceOption = {
+  HeavyBlogIsHeavy: "hbih"
+};
+
+export default WebResourceOption;

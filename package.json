@@ -1,0 +1,31 @@
+{
+  "name": "metal-news-bot",
+  "version": "1.0.0",
+  "description": "A discord bot that will find metal band keywords on popular metal blogging sites, and do your taxes.",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^13.9.1",
+    "@types/puppeteer": "^2.0.1",
+    "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node": "^13.10.1",
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "rm -rf build && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakehamtexas/metal-news-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakehamtexas/metal-news-bot/issues"
+  },
+  "homepage": "https://github.com/jakehamtexas/metal-news-bot#readme"
+}
