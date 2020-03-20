@@ -51,7 +51,7 @@ export class HeadlessBrowser implements IDisposable {
 
   private readonly _browser: Promise<Browser>;
   constructor(url: string, isHeadless: boolean = true) {
-    this._browser = launch({ headless: isHeadless });
+    this._browser = launch({ headless: isHeadless, args: ["--no-sandbox"] });
     this._url = url;
   }
 
