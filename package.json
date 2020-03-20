@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A discord bot that will find metal band keywords on popular metal blogging sites, and do your taxes.",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/node": "^13.9.1",
