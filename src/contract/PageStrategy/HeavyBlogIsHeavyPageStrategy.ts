@@ -16,8 +16,8 @@ const getHeadlines = async (page: Page): Promise<IHeadline[]> => {
   });
 };
 const goToNext = async (page: Page): Promise<boolean> => {
-  const selector = `.nav-previous`; // This navs to older posts.
-  const hasSelector = !!(await page.$(selector));
+  const selector = ".nav-previous > a"; // This navs to older posts.
+  const hasSelector = !!(await page.$$(selector));
   if (hasSelector) {
     await page.click(selector);
   }
