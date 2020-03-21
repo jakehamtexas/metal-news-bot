@@ -14,17 +14,12 @@ const isReasonable = (n: number) => {
   const someArbitraryLimit = 50;
   return n <= someArbitraryLimit;
 };
-const getTopN = async (n: number, option: string): Promise<IHeadline[]> => {
-  const factory = new TopNFactory(option);
-  return await factory.List(n);
-};
 
 const topN = async (message: Message, { text, option }: ICommand) => {
   const n = parseInt(text);
   const [resource] =
-    Object.entries(WebResourceOption).find(
-      ([key, value]) => value === option
-    ) || [];
+    Object.entries(WebResourceOption).find(([, value]) => value === option) ||
+    [];
   if (isNaN(n) || !resource) {
     message.channel.send(
       `Make sure your message format follows \'!top <n> ${WebResourceOptionValuesAsString}\'.`
@@ -33,7 +28,8 @@ const topN = async (message: Message, { text, option }: ICommand) => {
   }
   message.channel.send(`Looking for the top ${n} headlines in ${resource}.`);
   if (isReasonable(n)) {
-    const topN = await getTopN(n, option.trim().toLowerCase());
+    const factory = new TopNFactory(option);
+    const topN = await factory.List(n);
     const chunked = chunkByCharacterCount(topN, 2000);
     chunked
       .map(format)

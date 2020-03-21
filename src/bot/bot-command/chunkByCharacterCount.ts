@@ -1,4 +1,5 @@
 import { IHeadline } from "../../contract/Headline";
+import { EOL } from "os";
 
 const chunkByCharacterCount = (
   headlines: IHeadline[],
@@ -8,7 +9,7 @@ const chunkByCharacterCount = (
   const chunks: IHeadline[][] = [];
   const chunk: IHeadline[] = [];
   for (let headline of headlines) {
-    const headlineCharacterCount = headline.href.length;
+    const headlineCharacterCount = headline.href.length + EOL.length;
     currentCount += headlineCharacterCount;
 
     if (currentCount >= characterCount) {
