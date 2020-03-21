@@ -1,4 +1,7 @@
-import WebResourceOption from "./WebResourceOption";
+import {
+  WebResourceOption,
+  WebResourceOptionValuesAsString
+} from "./WebResourceOption";
 import BotCommand from "./BotCommand";
 
-export { BotCommand, WebResourceOption };
+export { BotCommand, WebResourceOption, WebResourceOptionValuesAsString };

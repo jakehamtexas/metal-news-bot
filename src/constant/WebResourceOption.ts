@@ -2,4 +2,8 @@ const WebResourceOption = {
   HeavyBlogIsHeavy: "hbih"
 };
 
-export default WebResourceOption;
+const WebResourceOptionValuesAsString = `[${Object.values(
+  WebResourceOption
+).join("|")}]`;
+
+export { WebResourceOption, WebResourceOptionValuesAsString };
