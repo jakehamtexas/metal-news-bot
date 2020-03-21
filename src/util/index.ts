@@ -5,7 +5,7 @@ const asyncUsing = async <TDisposableResourceType extends IDisposable>(
   asyncFunction: (resource: TDisposableResourceType) => Promise<void>
 ): Promise<void> => {
   try {
-    return await asyncFunction(resource);
+    await asyncFunction(resource);
   } catch (e) {
     console.log(e);
   } finally {
