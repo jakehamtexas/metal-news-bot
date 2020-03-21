@@ -10,7 +10,7 @@ const helpText = (message: Message, botId: string) => {
     message.channel.send(`metal-news-bot
 Commands:
 \`@metal-news-bot help\` prints this help text
-\`!top <n> ${WebResourceOptionValuesAsString}\` gets the latest n headlines from any registered blog.
+\`!top <n> ${WebResourceOptionValuesAsString} <?dickmove>\` gets the latest n headlines from any registered blog. If you want to be a dick, you can add \`dickmove\` to the end of the command to force large N.
     Options:
       - \'hbib\': Heavy Blog Is Heavy https://www.heavyblogisheavy.com
 `);

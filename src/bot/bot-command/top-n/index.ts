@@ -11,11 +11,15 @@ import chunkByCharacterCount from "../chunkByCharacterCount";
 import { IHeadline } from "../../../contract/Headline";
 
 const isReasonable = (n: number) => {
-  const someArbitraryLimit = 50;
+  const someArbitraryLimit = 5;
   return n <= someArbitraryLimit;
 };
 
-const topN = async (message: Message, { text, option }: ICommand) => {
+const topN = async (
+  message: Message,
+  { text, option }: ICommand,
+  optionalParam: string
+) => {
   const n = parseInt(text);
   const [resource] =
     Object.entries(WebResourceOption).find(([, value]) => value === option) ||
@@ -27,14 +31,22 @@ const topN = async (message: Message, { text, option }: ICommand) => {
     return;
   }
   message.channel.send(`Looking for the top ${n} headlines in ${resource}.`);
-  if (isReasonable(n)) {
+  if (!isReasonable(n) && optionalParam === "dickmove") {
+    message.channel.send(`You're going to flood the chat! What a dick move.`);
+  } else if (optionalParam === "dickmove") {
+    message.channel.send(
+      "You were a dick with a small N, which is altogether a different kind of dick move."
+    );
+  }
+  if (isReasonable(n) || (!isReasonable(n) && optionalParam === "dickmove")) {
     const factory = new TopNFactory(option);
     const topN = await factory.List(n);
     const chunked = chunkByCharacterCount(topN, 2000);
     chunked
       .map(format)
       .forEach(formattedText => message.channel.send(formattedText));
-  } else message.channel.send("That N is too big, senpai!");
+  } else
+    message.channel.send("That N is too big for my tiny parameter, senpai!"); //suffer
 };
 
 export default topN;
