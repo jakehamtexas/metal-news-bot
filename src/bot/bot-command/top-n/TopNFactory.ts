@@ -10,9 +10,12 @@ export class TopNFactory {
 
   public async List(n: number): Promise<IHeadline[]> {
     switch (this._option) {
+      case WebResourceOption.InvisibleOranges:
+        return MetalNewsManager.invisibleOranges.getTopN(n);
       case WebResourceOption.HeavyBlogIsHeavy:
-      default:
         return MetalNewsManager.heavyBlogIsHeavy.getTopN(n);
+      default:
+        throw new Error("I don't recognize that resource!");
     }
   }
 }

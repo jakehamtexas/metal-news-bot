@@ -6,6 +6,8 @@ const asyncUsing = async <TDisposableResourceType extends IDisposable>(
 ): Promise<void> => {
   try {
     return await asyncFunction(resource);
+  } catch (e) {
+    console.log(e);
   } finally {
     await resource.dispose();
   }

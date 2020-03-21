@@ -39,11 +39,16 @@ const topN = async (
   }
   if (isReasonable(n) || (!isReasonable(n) && optionalParam === "dickmove")) {
     const factory = new TopNFactory(option);
-    const topN = await factory.List(n);
-    const chunked = chunkByCharacterCount(topN, 2000);
-    chunked
-      .map(format)
-      .forEach(formattedText => message.channel.send(formattedText));
+    try {
+      const topN = await factory.List(n);
+      const chunked = chunkByCharacterCount(topN, 2000);
+      chunked
+        .map(format)
+        .forEach(formattedText => message.channel.send(formattedText));
+    } catch (e) {
+      message.channel.send(e);
+      console.log(e);
+    }
   } else
     message.channel.send("That N is too big for my tiny parameter, senpai!"); //suffer
 };
