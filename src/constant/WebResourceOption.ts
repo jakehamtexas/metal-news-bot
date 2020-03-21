@@ -1,6 +1,7 @@
 const WebResourceOption = {
   HeavyBlogIsHeavy: "hbih",
-  InvisibleOranges: "io"
+  InvisibleOranges: "io",
+  MetalSucks: "ms"
 };
 
 const WebResourceOptionValuesAsString = `[${Object.values(
