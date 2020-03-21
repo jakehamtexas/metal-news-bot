@@ -8,7 +8,6 @@ import {
   WebResourceOption
 } from "../../../constant";
 import chunkByCharacterCount from "../chunkByCharacterCount";
-import { IHeadline } from "../../../contract/Headline";
 
 const isReasonable = (n: number) => {
   const someArbitraryLimit = 5;
