@@ -2,7 +2,6 @@ import { Message } from "discord.js";
 import { WebResourceOptionValuesAsString } from "../../constant";
 
 const helpText = (message: Message, botId: string) => {
-  console.log(message.content);
   if (
     message.mentions &&
     message.mentions.users.has(botId) &&

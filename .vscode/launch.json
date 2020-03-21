@@ -10,6 +10,13 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/main.ts",
       "outFiles": ["${workspaceFolder}/build/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Debug",
+      "program": "${workspaceFolder}/src/debug.ts",
+      "outFiles": ["${workspaceFolder}/build/**/*.js"]
     }
   ]
 }

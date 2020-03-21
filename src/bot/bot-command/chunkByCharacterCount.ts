@@ -8,15 +8,15 @@ const chunkByCharacterCount = (
   const chunks: IHeadline[][] = [];
   const chunk: IHeadline[] = [];
   for (let headline of headlines) {
-    if (currentCount < characterCount) {
-      chunk.push(headline);
+    const headlineCharacterCount = headline.href.length;
+    currentCount += headlineCharacterCount;
 
-      const headlineCharacterCount = headline.href.length;
-      currentCount += headlineCharacterCount;
-    } else {
-      chunks.push(chunk);
+    if (currentCount >= characterCount) {
+      chunks.push([...chunk]);
       chunk.length = 0;
+      currentCount = headlineCharacterCount;
     }
+    chunk.push(headline);
   }
   chunks.push(chunk);
   return chunks;
