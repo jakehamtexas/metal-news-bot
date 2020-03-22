@@ -8,6 +8,8 @@ import {
   WebResourceOption
 } from "../../../constant";
 import chunkByCharacterCount from "../chunkByCharacterCount";
+import getErrorImagePath from "./errorImagePath";
+import errorImagePath from "./errorImagePath";
 
 const isReasonable = (n: number) => {
   const someArbitraryLimit = 5;
@@ -23,10 +25,15 @@ const topN = async (
   const [resource] =
     Object.entries(WebResourceOption).find(([, value]) => value === option) ||
     [];
-  if (isNaN(n) || !resource) {
+  if (isNaN(n) || !resource || n <= 0) {
     message.channel.send(
       `Make sure your message format follows \'!top <n> ${WebResourceOptionValuesAsString}\'.`
     );
+    return;
+  }
+  if (n <= 0) {
+    const zoidberg = errorImagePath;
+    message.channel.send({ files: [zoidberg] });
     return;
   }
   message.channel.send(`Looking for the top ${n} headlines in ${resource}.`);
