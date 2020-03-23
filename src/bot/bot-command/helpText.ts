@@ -14,7 +14,7 @@ Commands:
     Options:
       - \'hbib\': Heavy Blog Is Heavy https://www.heavyblogisheavy.com
       - \'io\': Invisible Oranges http://www.invisibleoranges.com
-      - \'ms\': Metal Sucks https://www.metalsucks.com
+      - \'ms\': Metal Sucks https://www.metalsucks.net
 `);
   }
 };
