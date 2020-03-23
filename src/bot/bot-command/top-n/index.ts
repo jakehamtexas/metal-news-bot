@@ -25,7 +25,7 @@ const topN = async (
   const [resource] =
     Object.entries(WebResourceOption).find(([, value]) => value === option) ||
     [];
-  if (isNaN(n) || !resource || n <= 0) {
+  if (isNaN(n) || !resource) {
     message.channel.send(
       `Make sure your message format follows \'!top <n> ${WebResourceOptionValuesAsString}\'.`
     );
