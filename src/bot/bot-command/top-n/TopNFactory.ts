@@ -14,6 +14,8 @@ export class TopNFactory {
         return MetalNewsManager.invisibleOranges.getTopN(n);
       case WebResourceOption.HeavyBlogIsHeavy:
         return MetalNewsManager.heavyBlogIsHeavy.getTopN(n);
+      case WebResourceOption.MetalSucks:
+        return MetalNewsManager.metalSucks.getTopN(n);
       default:
         throw new Error("I don't recognize that resource!");
     }
