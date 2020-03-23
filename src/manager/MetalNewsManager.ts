@@ -23,7 +23,7 @@ class MetalNewsManager {
     return new PageRA(baseUrl, InvisibleOrangesPageStrategy);
   }
   private _getMetalSucks() {
-    const baseUrl = `https://www.metalsucks.com/`;
+    const baseUrl = `https://www.metalsucks.net/`;
     return new PageRA(baseUrl, MetalSucksPageStrategy);
   }
 }
